@@ -1,0 +1,46 @@
+class Stack {
+    private int size;
+    private int[] a;
+    int tos;
+
+    Stack(int size) {
+        this.size=size;
+        a=new int[size];
+        tos =-1;
+    }
+    void push(int value){
+        if(tos<size-1){
+            tos++;
+            a[tos]=value;
+        }
+        else System.out.println("Insufficient Storage for:"+value);
+    }
+    void pop(){
+        if(tos<0) System.out.println("No Data");
+        else{
+            System.out.println(a[tos]);
+            tos--;
+        }
+    }
+    boolean isEmpty(){
+        if(tos==-1) {
+            return true;
+        }
+        else return false;
+    }
+    boolean isFull(){
+        if(tos == size - 1) return true;
+        else return false;
+    }
+}
+
+public class St{
+    public static void main(String[] args) {
+        Stack s=new Stack(3);
+        s.push(25);
+        s.push(24);
+        System.out.println(s.isEmpty());
+        System.out.println(s.isFull());
+
+    }
+}
